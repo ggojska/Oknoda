@@ -8,6 +8,7 @@ class MainMenu :
 private:
     //Variables
     sf::RectangleShape background;
+    sf::Texture backgroundTexture;
     sf::Font font;
     std::map<std::string, Button*> buttons;
 
@@ -15,6 +16,7 @@ private:
     void initKeybinds();
     void initFonts();
     void initButtons();
+    void initVariables();
     void initBackground();
 
 public:
@@ -22,7 +24,7 @@ public:
     virtual ~MainMenu();
 
     //Functions
-
+    void endStateUpdate();
     void updateInput(const float& dt);
     void updateButtons();
     void update(const float& dt);

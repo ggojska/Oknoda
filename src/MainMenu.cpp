@@ -3,6 +3,7 @@
 MainMenu::MainMenu(sf::RenderWindow* window, std::map<std::string, int>* supportedKeys, std::stack<State*>* states)
 	: State(window, supportedKeys, states)
 {
+	this->initVariables();
 	this->initKeybinds();
 	this->initFonts();
 	this->initButtons();
@@ -17,6 +18,11 @@ MainMenu::~MainMenu()
 	}
 }
 
+void MainMenu::initVariables()
+{
+
+}
+
 void MainMenu::initBackground()
 {
 	this->background.setSize(
@@ -26,15 +32,13 @@ void MainMenu::initBackground()
 			static_cast<float>(this->window->getSize().y)
 		)
 	);
-	//to delete later
-	this->background.setFillColor(sf::Color::Black);
 
-	//if (!this->backgroundTexture.loadFromFile(""))
-	//{
-	//	throw "ERROR::MAIN_MENU_STATE::FAILED_TO_LOAD_BACKGROUND_TEXTURE";
-	//}
-	//
-	//this->background.setTexture(&this->backgroundTexture);
+	if (!this->backgroundTexture.loadFromFile("Graphics/mainmenu_background.png"))
+	{
+		throw "ERROR::MAIN_MENU_STATE::FAILED_TO_LOAD_BACKGROUND_TEXTURE";
+	}
+
+	this->background.setTexture(&this->backgroundTexture);
 }
 
 void MainMenu::initKeybinds()
@@ -75,9 +79,14 @@ void MainMenu::initButtons()
 	);
 }
 
+void MainMenu::endStateUpdate()
+{
+
+}
+
 void MainMenu::updateInput(const float& dt)
 {
-	this->checkForQuit();
+
 }
 
 void MainMenu::updateButtons()
@@ -96,7 +105,7 @@ void MainMenu::updateButtons()
 	//Quit the game
 	if (this->buttons["EXIT_STATE"]->isPressed())
 	{
-		this->quit = true;
+		this->endState();
 	}
 }
 

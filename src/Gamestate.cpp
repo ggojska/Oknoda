@@ -29,10 +29,13 @@ void Gamestate::initKeybinds()
 	ifs.close();
 }
 
+void Gamestate::endStateUpdate()
+{
+
+}
+
 void Gamestate::updateInput(const float& dt)
 {
-	this->checkForQuit();
-	
 	//Player input
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keybinds.at("MOVE_UP")))) {
 		this->player.move(dt, 0.f, -1.f);
@@ -46,6 +49,9 @@ void Gamestate::updateInput(const float& dt)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keybinds.at("MOVE_RIGHT")))) {
 		this->player.move(dt, 1.f, 0.f);
 	}	
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keybinds.at("CLOSE")))) {
+		this->quit = true;
+	}
 }
 
 void Gamestate::update(const float& dt)
