@@ -6,10 +6,12 @@ class Gamestate :
 {
 private:
     //Variables
-    Entity player;
+    Player *player;
 
     //Functions
     void initKeybinds();
+    void initTextures();
+    void initPlayer();
 
 public:
     Gamestate(sf::RenderWindow* window, std::map<std::string, int>* supportedKeys, std::stack<State*>* states);

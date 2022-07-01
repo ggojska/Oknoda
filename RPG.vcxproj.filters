@@ -25,6 +25,9 @@
     <ClCompile Include="src\Button.cpp">
       <Filter>Resources</Filter>
     </ClCompile>
+    <ClCompile Include="src\Player.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\stdafx.h">
@@ -47,6 +50,9 @@
     </ClInclude>
     <ClInclude Include="src\Button.h">
       <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Player.h">
+      <Filter>Entities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
