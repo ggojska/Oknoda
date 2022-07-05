@@ -1,6 +1,8 @@
 #include "Button.h"
 
-Button::Button(float x, float y, float width, float height, sf::Font* font, std::string text, 
+Button::Button(float x, float y, float width, float height, 
+				sf::Font* font, std::string text, unsigned characterSize,
+				sf::Color textIlde, sf::Color textHover, sf::Color textActive,
 				sf::Color idleColor, sf::Color hoverColor, sf::Color activeColor)
 {
 	this->buttonState = BTN_IDLE;
@@ -11,8 +13,8 @@ Button::Button(float x, float y, float width, float height, sf::Font* font, std:
 	this->font = font;
 	this->text.setFont(*this->font);
 	this->text.setString(text);
-	this->text.setFillColor(sf::Color::White);
-	this->text.setCharacterSize(12);
+	this->text.setFillColor(textIlde);
+	this->text.setCharacterSize(characterSize);
 
 	this->shape.setOrigin(this->shape.getGlobalBounds().width / 2.f, this->shape.getGlobalBounds().height / 2.f);
 	this->text.setOrigin(this->text.getGlobalBounds().width / 2.f, this->text.getGlobalBounds().height / 2.f);
@@ -21,6 +23,10 @@ Button::Button(float x, float y, float width, float height, sf::Font* font, std:
 		sf::Vector2f(this->shape.getPosition().x, 
 		this->shape.getPosition().y - static_cast<float>(this->text.getCharacterSize()) / 4.f)
 	);
+
+	this->textIdleColor = textIlde;
+	this->textHoverColor = textHover;
+	this->textActiveColor = textActive;
 
 	this->idleColor = idleColor;
 	this->hoverColor = hoverColor;
@@ -57,16 +63,20 @@ void Button::update(sf::Vector2f mousePos)
 
 	switch (this->buttonState) {
 	case BTN_IDLE:
-		this->shape.setFillColor(idleColor);
+		this->shape.setFillColor(this->idleColor);
+		this->text.setFillColor(this->textIdleColor);
 		break;
 	case BTN_HOVER:
-		this->shape.setFillColor(hoverColor);
+		this->shape.setFillColor(this->hoverColor);
+		this->text.setFillColor(this->textHoverColor);
 		break;
 	case BTN_PRESSED:
-		this->shape.setFillColor(activeColor);
+		this->shape.setFillColor(this->activeColor);
+		this->text.setFillColor(this->textActiveColor);
 		break;
 	default:
 		this->shape.setFillColor(sf::Color::Red);
+		this->text.setFillColor(sf::Color::Blue);
 		break;
 	}
 }

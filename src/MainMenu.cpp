@@ -69,16 +69,19 @@ void MainMenu::initFonts()
 
 void MainMenu::initButtons()
 {
-	this->buttons["GAME_STATE"] = new Button(this->window->getSize().x/2, this->window->getSize().y / 2 - 75, 150, 50,
-		&this->font, "Start Game", 
+	this->buttons["GAME_STATE"] = new Button(this->window->getSize().x/2, this->window->getSize().y / 2 - 75, 250, 75,
+		&this->font, "Start Game", 25,
+		sf::Color(70, 70, 70, 200), sf::Color(250, 250, 250, 250), sf::Color(20, 20, 20, 50),
 		sf::Color(175, 175, 175, 200), sf::Color(175, 175, 175, 255), sf::Color(255, 175, 175, 255)
 	);
-	this->buttons["EDITOR_STATE"] = new Button(this->window->getSize().x / 2, this->window->getSize().y / 2, 150, 50,
-		&this->font, "Editor",
+	this->buttons["EDITOR_STATE"] = new Button(this->window->getSize().x / 2, this->window->getSize().y / 2 + 25, 250, 75,
+		&this->font, "Editor", 25,
+		sf::Color(70, 70, 70, 200), sf::Color(250, 250, 250, 250), sf::Color(20, 20, 20, 50),
 		sf::Color(175, 175, 175, 200), sf::Color(175, 175, 175, 255), sf::Color(255, 175, 175, 255)
 	);
-	this->buttons["EXIT_STATE"] = new Button(this->window->getSize().x / 2, this->window->getSize().y / 2 + 250, 150, 50,
-		&this->font, "Exit Game", 
+	this->buttons["EXIT_STATE"] = new Button(this->window->getSize().x / 2, this->window->getSize().y / 2 + 250, 250, 75,
+		&this->font, "Exit Game", 25,
+		sf::Color(70, 70, 70, 200), sf::Color(250, 250, 250, 250), sf::Color(20, 20, 20, 50),
 		sf::Color(175, 175, 175, 200), sf::Color(175, 175, 175, 255), sf::Color(255, 175, 175, 255)
 	);
 }
