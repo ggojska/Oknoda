@@ -41,7 +41,7 @@ void Gamestate::initTextures()
 
 void Gamestate::initPlayer()
 {
-	this->player = new Player(0, 0, &this->textures["PLAYER"]);
+	this->player = new Player(0, 0, this->textures["PLAYER"]);
 }
 
 void Gamestate::endStateUpdate()

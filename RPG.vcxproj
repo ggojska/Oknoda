@@ -25,6 +25,7 @@
     <ClCompile Include="src\Gamestate.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\MainMenu.cpp" />
+    <ClCompile Include="src\MovementComponent.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\State.cpp" />
     <ClCompile Include="src\stdafx.cpp" />
@@ -35,6 +36,7 @@
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\Gamestate.h" />
     <ClInclude Include="src\MainMenu.h" />
+    <ClInclude Include="src\MovementComponent.h" />
     <ClInclude Include="src\Player.h" />
     <ClInclude Include="src\State.h" />
     <ClInclude Include="src\stdafx.h" />

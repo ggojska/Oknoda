@@ -28,6 +28,9 @@
     <ClCompile Include="src\Player.cpp">
       <Filter>Entities</Filter>
     </ClCompile>
+    <ClCompile Include="src\MovementComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\stdafx.h">
@@ -54,6 +57,9 @@
     <ClInclude Include="src\Player.h">
       <Filter>Entities</Filter>
     </ClInclude>
+    <ClInclude Include="src\MovementComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source">
@@ -67,6 +73,9 @@
     </Filter>
     <Filter Include="Resources">
       <UniqueIdentifier>{310e5615-a95e-40f1-a33f-cd66c0967970}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components">
+      <UniqueIdentifier>{5b276bce-760b-46c4-a1ec-e913d2f71ee1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

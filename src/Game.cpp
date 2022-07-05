@@ -52,7 +52,7 @@ void Game::initWindow()
 		ifs >> vertical_sync_enabled;
 		ifs >> antialiasing_level;
 	}
-	else std::cout << "Can't read window/ini file";
+	else std::cout << "Can't read window.ini file";
 
 	ifs.close();
 

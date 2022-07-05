@@ -5,7 +5,7 @@
 class State
 {
 protected:
-	std::stack<State*>* states; // pointer to itself! Very important
+	std::stack<State*>* states; // pointer to itself
 
 	sf::RenderWindow* window;
 	std::map<std::string, int>* supportedKeys;

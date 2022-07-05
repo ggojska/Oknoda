@@ -1,6 +1,7 @@
 #pragma once
 
 #include "stdafx.h"
+#include "MovementComponent.h"
 
 class Entity
 {
@@ -8,16 +9,18 @@ private:
 	void initVariables();
 
 protected:
-	sf::Sprite* sprite;
+	sf::Sprite sprite;
 	sf::Texture* texture;
-	float movementSpeed;
+	
+	MovementComponent* movementComponent;
 
 public:
 	Entity();
 	virtual ~Entity();
 
 	//Component Fuctions
-	void createSprite(sf::Texture* texture);
+	void setTexture(sf::Texture& texture);
+	void createMovementComponent(const float maxVelocity, const float acceleration, const float deceleration);
 
 	//Functions
 	virtual void setPosition(const float x, const float y);
