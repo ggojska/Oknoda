@@ -8,12 +8,15 @@ class Player :
 private:
     //Variables
     
-    //Init fuctions
+    //Initializer fuctions
     void initVariables();
-    void initComponents();
+    //void initComponents();
 
 public:
-    Player(float x, float y, sf::Texture& texture);
+    Player(float x, float y, sf::Texture& textureSheet);
     virtual ~Player();
+
+    //Fuction
+    virtual void update(const float& dt);
 };
 

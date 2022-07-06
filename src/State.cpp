@@ -10,7 +10,7 @@ State::State(sf::RenderWindow* window, std::map<std::string, int>* supportedKeys
 
 State::~State()
 {
-
+	
 }
 
 const bool& State::getQuit() const
