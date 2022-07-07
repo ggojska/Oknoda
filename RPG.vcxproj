@@ -21,9 +21,11 @@
   <ItemGroup>
     <ClCompile Include="src\AnimationComponent.cpp" />
     <ClCompile Include="src\Button.cpp" />
+    <ClCompile Include="src\EditorState.cpp" />
     <ClCompile Include="src\Entity.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Gamestate.cpp" />
+    <ClCompile Include="src\HitboxComponent.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\MainMenu.cpp" />
     <ClCompile Include="src\MovementComponent.cpp" />
@@ -34,9 +36,11 @@
   <ItemGroup>
     <ClInclude Include="src\AnimationComponent.h" />
     <ClInclude Include="src\Button.h" />
+    <ClInclude Include="src\EditorState.h" />
     <ClInclude Include="src\Entity.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\Gamestate.h" />
+    <ClInclude Include="src\HitboxComponent.h" />
     <ClInclude Include="src\MainMenu.h" />
     <ClInclude Include="src\MovementComponent.h" />
     <ClInclude Include="src\Player.h" />

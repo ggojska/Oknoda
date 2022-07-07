@@ -63,7 +63,7 @@ void MainMenu::initFonts()
 {
 	if (!this->font.loadFromFile("Fonts/Viking.TTF"))
 	{
-		throw("ERROR: Could not load font (Fonts/Viking.TTF)");
+		throw("ERROR::MAINMENUSTATEE Could not load font (Fonts/Viking.TTF)");
 	}
 }
 
@@ -86,11 +86,6 @@ void MainMenu::initButtons()
 	);
 }
 
-void MainMenu::endStateUpdate()
-{
-
-}
-
 void MainMenu::updateInput(const float& dt)
 {
 
@@ -103,13 +98,19 @@ void MainMenu::updateButtons()
 		it.second->update(this->mousePosView);
 	}
 
-	//New game
+	// new game
 	if (this->buttons["GAME_STATE"]->isPressed())
 	{
 		this->states->push(new Gamestate(this->window, this->supportedKeys, this->states));
 	}
 
-	//Quit the game
+	// editor state
+	if (this->buttons["EDITOR_STATE"]->isPressed())
+	{
+		this->states->push(new EditorState(this->window, this->supportedKeys, this->states));
+	}
+
+	// quit the game
 	if (this->buttons["EXIT_STATE"]->isPressed())
 	{
 		this->endState();
@@ -124,14 +125,13 @@ void MainMenu::update(const float& dt)
 	this->updateButtons();
 }
 
-void MainMenu::renderButtons(sf::RenderTarget* target)
+void MainMenu::renderButtons(sf::RenderTarget& target)
 {
 	for (auto& it : this->buttons)
 	{
 		it.second->render(target);
 	}
 }
-
 
 void MainMenu::render(sf::RenderTarget* target)
 {
@@ -140,5 +140,5 @@ void MainMenu::render(sf::RenderTarget* target)
 
 	target->draw(this->background);
 
-	this->renderButtons(target);
+	this->renderButtons(*target);
 }

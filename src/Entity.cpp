@@ -1,21 +1,16 @@
 #include "Entity.h"
 
 Entity::Entity()
+	: texture(NULL), movementComponent(NULL), animationComponent(NULL), hitboxComponent(NULL)
 {
-	this->initVariables();
+
 }
 
 Entity::~Entity()
 {
 	delete this->movementComponent;
 	delete this->animationComponent;
-}
-
-void Entity::initVariables()
-{
-	this->texture = NULL;
-
-	this->movementComponent = NULL;
+	delete this->hitboxComponent;
 }
 
 //Component Fuctions
@@ -33,6 +28,11 @@ void Entity::createMovementComponent(const float maxVelocity, const float accele
 void Entity::createAnimationComponent(sf::Texture& textureSheet)
 {
 	this->animationComponent = new AnimationComponent(this->sprite, textureSheet);
+}
+
+void Entity::createHitboxComponent(sf::Sprite& sprite, float offset_x, float offset_y, float width, float height)
+{
+	this->hitboxComponent = new HitboxComponent(sprite, offset_x, offset_y, width, height);
 }
 
 void Entity::setPosition(const float x, const float y)
@@ -54,8 +54,10 @@ void Entity::update(const float& dt)
 
 }
 
-void Entity::render(sf::RenderTarget* target)
+void Entity::render(sf::RenderTarget& target)
 {
-		target->draw(this->sprite);
+		target.draw(this->sprite);
+		if (this->hitboxComponent)
+			this->hitboxComponent->render(target);
 }
 

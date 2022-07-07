@@ -27,12 +27,11 @@ public:
 	virtual ~State();
 
 	const bool& getQuit() const;
-	virtual void endStateUpdate() = 0;
 
 	void endState();
 	virtual void updateInput(const float& dt) = 0;
 	virtual void update(const float& dt) = 0;
 	void updateMousePositions();
-	virtual void render(sf::RenderTarget* target = nullptr) = 0;
+	virtual void render(sf::RenderTarget* target) = 0;
 };
 

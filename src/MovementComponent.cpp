@@ -18,6 +18,25 @@ const sf::Vector2f& MovementComponent::getVelocity() const
 	return this->velocity;
 }
 
+sf::Vector2f MovementComponent::getDirection()
+{
+	sf::Vector2f ret = sf::Vector2f(0, 0);
+	if (this->velocity.x == 0 && this->velocity.y == 0) // not moving
+	{
+		return sf::Vector2f(0, 0);
+	}
+	else if (abs(this->velocity.x) > abs(this->velocity.y)) // going faster along oX axis than oY axis
+	{
+		if (this->velocity.x > 0.f) return sf::Vector2f(1, 0);
+		else return sf::Vector2f(-1, 0);
+	}
+	else // going faster along oY axis than oX axis
+	{
+		if (this->velocity.y > 0.f) return sf::Vector2f(0, 1);
+		else return sf::Vector2f(0, -1);
+	}
+}
+
 //Functions
 void MovementComponent::move(const float& dt, const float dir_x, const float dir_y)
 {

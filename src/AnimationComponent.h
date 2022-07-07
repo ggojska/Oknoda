@@ -58,7 +58,7 @@ private:
 
 		void reset()
 		{
-			this->timer = 0.f;
+ 			this->timer = 0.f;
 			this->currentRect.left = this->startRect.left;
 		}
 	};
@@ -66,6 +66,8 @@ private:
 	sf::Sprite& sprite;
 	sf::Texture& textureSheet;
 	std::map<std::string, Animation*> animations;
+	Animation* lastAnimation;
+
 public:
 	AnimationComponent(sf::Sprite& sprite, sf::Texture& textureSheet);
 	virtual ~AnimationComponent();
