@@ -32,6 +32,7 @@
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\State.cpp" />
     <ClCompile Include="src\stdafx.cpp" />
+    <ClCompile Include="src\Tile.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\AnimationComponent.h" />
@@ -46,6 +47,7 @@
     <ClInclude Include="src\Player.h" />
     <ClInclude Include="src\State.h" />
     <ClInclude Include="src\stdafx.h" />
+    <ClInclude Include="src\Tile.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

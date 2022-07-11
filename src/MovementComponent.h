@@ -22,6 +22,7 @@ public:
 	~MovementComponent();
 
 	//Accessors
+	const float& getMaxVelocity() const;
 	const sf::Vector2f& getVelocity() const;
 	sf::Vector2f getDirection();
 

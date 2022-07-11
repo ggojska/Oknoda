@@ -40,6 +40,9 @@
     <ClCompile Include="src\HitboxComponent.cpp">
       <Filter>Components</Filter>
     </ClCompile>
+    <ClCompile Include="src\Tile.cpp">
+      <Filter>Tiles</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\stdafx.h">
@@ -78,6 +81,9 @@
     <ClInclude Include="src\HitboxComponent.h">
       <Filter>Components</Filter>
     </ClInclude>
+    <ClInclude Include="src\Tile.h">
+      <Filter>Tiles</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source">
@@ -94,6 +100,9 @@
     </Filter>
     <Filter Include="Components">
       <UniqueIdentifier>{5b276bce-760b-46c4-a1ec-e913d2f71ee1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tiles">
+      <UniqueIdentifier>{5d896082-9ca0-4da4-a2e4-aa2ce4245734}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

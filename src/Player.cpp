@@ -1,12 +1,12 @@
 #include "Player.h"
 
 Player::Player(float x, float y, sf::Texture& textureSheet)
+	: attacking(false)
 {
 	this->setPosition(x, y);
 
 	//this->createHitboxComponent(this->sprite, 0.f, 0.f, this->sprite.getGlobalBounds().width, this->sprite.getGlobalBounds().height);
 	this->createHitboxComponent(this->sprite, 0.f, 0.f, 128.f, 128.f);
-	std::cout << this->sprite.getGlobalBounds().height;
 	this->createMovementComponent(300.f, 15.f, 5.f);
 	this->createAnimationComponent(textureSheet);
 
@@ -22,28 +22,49 @@ Player::~Player()
 
 }
 
+void Player::updateAnimation(const float& dt)
+{
+	if (this->attacking)
+	{
+		if (this->animationComponent->play("WALK_RIGHT", dt, true)) //TODO add attack animation
+		{
+			this->attacking = false;
+		}
+	}
+	if (this->movementComponent->getDirection().x == 1)
+	{
+		this->animationComponent->play("WALK_RIGHT", dt, this->movementComponent->getVelocity().x, this->movementComponent->getMaxVelocity());
+	}
+	else if (this->movementComponent->getDirection().x == -1)
+	{
+		this->animationComponent->play("WALK_LEFT", dt, this->movementComponent->getVelocity().x, this->movementComponent->getMaxVelocity());
+	}
+	else if (this->movementComponent->getDirection().y == 1)
+	{
+		this->animationComponent->play("WALK_DOWN", dt, this->movementComponent->getVelocity().y, this->movementComponent->getMaxVelocity());
+	}
+	else if (this->movementComponent->getDirection().y == -1)
+	{
+		this->animationComponent->play("WALK_UP", dt, this->movementComponent->getVelocity().y, this->movementComponent->getMaxVelocity());
+	}
+	else
+		this->animationComponent->play("IDLE", dt);
+}
+
+void Player::updateAttack()
+{
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	{
+		this->attacking = true;
+	}
+}
+
 void Player::update(const float& dt)
 {
 	this->movementComponent->update(dt);
 
-	if (this->movementComponent->getDirection().x == 1)
-	{
-		this->animationComponent->play("WALK_RIGHT", dt);
-	}
-	else if (this->movementComponent->getDirection().x == -1)
-	{
-		this->animationComponent->play("WALK_LEFT", dt);
-	}
-	else if (this->movementComponent->getDirection().y == 1)
-	{
-		this->animationComponent->play("WALK_DOWN", dt);
-	}
-	else if (this->movementComponent->getDirection().y == -1)
-	{
-		this->animationComponent->play("WALK_UP", dt);
-	}
-	else 
-		this->animationComponent->play("IDLE", dt);
+	this->updateAttack();
+	this->updateAnimation(dt);
 
 	this->hitboxComponent->update();
 }
